@@ -54,13 +54,7 @@ public class Main {
         return roman.toString();
 
 
-/*        for (Roman r : Roman.values()) {
-            if (r.toInt() == n1)
-                return String.valueOf(r);
 
-
-        }
-        return null;*/
     }
 
     public static String calc(String input) throws Exception {
