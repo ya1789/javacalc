@@ -41,9 +41,7 @@ public class Main {
     }
 
     public static String calc(String input) throws Exception {
-        Scanner scan = new Scanner(System.in);
-        String line = scan.nextLine();
-        String[] a = line.split(" ");
+        String[] a = input.split(" ");
         if (a.length != 3) throw new Exception();
         if (StringUtils.isNumeric(a[0]) && StringUtils.isNumeric(a[2]))
         {
@@ -53,6 +51,9 @@ public class Main {
         }
         return null;
     }
-
+    Main main = new Main();
+    Scanner scan = new Scanner(System.in);
+    String line = scan.nextLine();
+    main.calc(line);
 
 }
