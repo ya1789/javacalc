@@ -18,26 +18,49 @@ public class Main {
 
 
     static int getResult(String symbol, int n1, int n2) throws Exception {
+        if (n1 <= 10 && n2 <= 10) {
         switch (symbol) {
-            case "-": return n1 - n2;
-            case "+" : return n1 + n2;
-            case "*" : return n1 * n2;
-            case "/" : return n1 / n2;
-            default : throw new Exception();
+            case "-":
+                return n1 - n2;
+            case "+":
+                return n1 + n2;
+            case "*":
+                return n1 * n2;
+            case "/":
+                return n1 / n2;
+            default:
+                throw new Exception();
         }
+        }
+        else throw new Exception();
     }
 
     static int toArabic(String n1) {
     return Roman.valueOf(n1).toInt();
     }
     static String toRoman(int n1) throws Exception {
-        for (Roman r : Roman.values()) {
+        if (n1 <= 0) throw new Exception();
+        int[] values = {100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] romanLetters = {"C","XC","L","XL","X","IX","V","IV","I"};
+        StringBuilder roman = new StringBuilder();
+        for(int i=0;i<values.length;i++)
+        {
+            while(n1 >= values[i])
+            {
+                n1 = n1 - values[i];
+                roman.append(romanLetters[i]);
+            }
+        }
+        return roman.toString();
+
+
+/*        for (Roman r : Roman.values()) {
             if (r.toInt() == n1)
                 return String.valueOf(r);
-            else throw new Exception();
+
 
         }
-        return null;
+        return null;*/
     }
 
     public static String calc(String input) throws Exception {
@@ -49,11 +72,14 @@ public class Main {
         } else if (!StringUtils.isNumeric(a[0]) && !StringUtils.isNumeric(a[2])) {
             return toRoman(getResult(a[1], toArabic(a[0]), toArabic(a[2])));
         }
-        return null;
+        else throw new Exception();
     }
-    Main main = new Main();
-    Scanner scan = new Scanner(System.in);
-    String line = scan.nextLine();
-    main.calc(line);
+    public static void main(String[] args) throws Exception {
+        Main m = new Main();
+        Scanner scan = new Scanner(System.in);
+        String line = scan.nextLine();
+        System.out.println(m.calc(line));
+    }
+
 
 }
