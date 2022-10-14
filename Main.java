@@ -16,23 +16,21 @@ public class Main {
         }
     }
 
-
     static int getResult(String symbol, int n1, int n2) throws Exception {
         if (n1 <= 10 && n2 <= 10) {
-        switch (symbol) {
-            case "-":
-                return n1 - n2;
-            case "+":
-                return n1 + n2;
-            case "*":
-                return n1 * n2;
-            case "/":
-                return n1 / n2;
-            default:
-                throw new Exception();
+            switch (symbol) {
+                case "-":
+                    return n1 - n2;
+                case "+":
+                    return n1 + n2;
+                case "*":
+                    return n1 * n2;
+                case "/":
+                    return n1 / n2;
+                default:
+                    throw new Exception();
         }
-        }
-        else throw new Exception();
+        } else throw new Exception();
     }
 
     static int toArabic(String n1) {
@@ -53,7 +51,6 @@ public class Main {
             }
         }
         return roman.toString();
-
     }
 
     public static String calc(String input) throws Exception {
