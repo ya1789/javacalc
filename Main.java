@@ -36,8 +36,9 @@ public class Main {
     }
 
     static int toArabic(String n1) {
-    return Roman.valueOf(n1).toInt();
+        return Roman.valueOf(n1).toInt();
     }
+
     static String toRoman(int n1) throws Exception {
         if (n1 <= 0) throw new Exception();
         int[] values = {100, 90, 50, 40, 10, 9, 5, 4, 1};
@@ -53,8 +54,6 @@ public class Main {
         }
         return roman.toString();
 
-
-
     }
 
     public static String calc(String input) throws Exception {
@@ -65,15 +64,13 @@ public class Main {
             return String.valueOf(getResult(a[1], Integer.parseInt(a[0]), Integer.parseInt(a[2])));
         } else if (!StringUtils.isNumeric(a[0]) && !StringUtils.isNumeric(a[2])) {
             return toRoman(getResult(a[1], toArabic(a[0]), toArabic(a[2])));
-        }
-        else throw new Exception();
+        } else throw new Exception();
     }
+
     public static void main(String[] args) throws Exception {
         Main m = new Main();
         Scanner scan = new Scanner(System.in);
         String line = scan.nextLine();
         System.out.println(m.calc(line));
     }
-
-
 }
