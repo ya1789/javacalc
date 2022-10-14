@@ -29,7 +29,7 @@ public class Main {
                     return n1 / n2;
                 default:
                     throw new Exception();
-        }
+            }
         } else throw new Exception();
     }
 
